@@ -1,14 +1,23 @@
 package com.guru.msscbeerservice.bootstrap;
 
 import com.guru.msscbeerservice.repositories.BeerRepository;
-import com.guru.msscbeerservice.web.domain.Beer;
+import com.guru.msscbeerservice.domain.Beer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
-@Component
+//@Component
 public class BeerLoader implements CommandLineRunner {
+
+    public static final String BEER_1_UPC = "080987675785";
+    public static final String BEER_2_UPC = "080985475785";
+    public static final String BEER_3_UPC = "870243475785";
+
+    public static final UUID BEER_1_UUID = UUID.fromString("69855ba4-ede5-11eb-9a03-0242ac130003");
+    public static final UUID BEER_2_UUID = UUID.fromString("69855df2-ede5-11eb-9a03-0242ac130003");
+    public static final UUID BEER_3_UUID = UUID.fromString("69855eec-ede5-11eb-9a03-0242ac130003");
 
     private final BeerRepository beerRepository;
 
@@ -28,7 +37,7 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("IPA")
                     .minOnHand(12)
                     .qualityToBeer(200)
-                    .upc(39837890988L)
+                    .upc(BEER_1_UPC)
                     .price(new BigDecimal("12.75"))
                     .build());
 
@@ -37,7 +46,16 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("PALE_ALE")
                     .minOnHand(12)
                     .qualityToBeer(200)
-                    .upc(39837890648L)
+                    .upc(BEER_2_UPC)
+                    .price(new BigDecimal("15.75"))
+                    .build());
+
+            beerRepository.save(Beer.builder()
+                    .beerName("No Hammers")
+                    .beerStyle("PALE_ALE")
+                    .minOnHand(12)
+                    .qualityToBeer(200)
+                    .upc(BEER_3_UPC)
                     .price(new BigDecimal("15.75"))
                     .build());
         }

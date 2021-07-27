@@ -1,0 +1,3 @@
+com\guru\msscbeerservice\MsscBeerServiceApplicationTests.class
+com\guru\msscbeerservice\services\inventory\BeerInventoryServiceRestTemplateImplTest.class
+com\guru\msscbeerservice\web\controller\BeerControllerTest.class
